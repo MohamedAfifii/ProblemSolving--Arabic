@@ -71,7 +71,7 @@ dynamic programming and the principle of inclusion-exclusion.
 
 ---
 
-# 4- Complexity of algorithms II
+## 4- Complexity of algorithms II
 #### Problems:
 There are now problems for this video (at least for now), so I will add more problems for the next video to compensate.
 
@@ -81,7 +81,7 @@ This playlist is also an excellent resource if you want to learn about the imple
 
 ---
 
-# 5- C++
+## 5- C++
 #### Additional references:
 You can learn more about C++ from this [website](http://www.cplusplus.com/doc/tutorial/), which also has a great documentation for the C++ STL (Standard Template Library). Just open up Google and type: cplusplus + the thing that you are searching for.  
 e.g. cplusplus vector or cplusplus sort function
@@ -108,13 +108,13 @@ In the last two videos, we haven't really learned a new algorithm or technique, 
 
 ---
 
-# 6- Overflow and type casting
+## 6- Overflow and type casting
 #### Problems:
 There are now problems for this video (at least for now).
 
 ---
 
-# 7- Partial sum
+## 7- Partial sum
 #### Extra notes:
 * Some people use the terms "Prefix sum" and "Partial sum" interchangeably.
 
