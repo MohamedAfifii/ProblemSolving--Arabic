@@ -4,7 +4,8 @@
 
 ## 1- Complexity of algorithms
 #### Extra notes:
-* The following picture (from a book called Competitive Programming 3 by Steven Halim) shows a rough estimation about the worst complexity of an algorithm that can be used for a problem of a given size.
+* The following picture (from a book called Competitive Programming 3 by Steven Halim) shows a rough estimation about the worst complexity of an algorithm that can be used for a problem of a given size.  
+
 ![Image](Images/Time complexity.png)
 
 * An easier way to get a rough estimation of whether an algorithm will pass for a given problem size or not, is to simply substitute with the problem limit in the equation of the upper-bound function of your algorithm.  
