@@ -27,7 +27,7 @@ If the number you get from this substitution is <= 10^8, then "most probably" yo
 ## 2- Frequency array
 #### Extra notes:
 * The usage of frequency arrays has its limitations. Remember that you need an array whose size is equal to the value of the largest integer in the original array. Which means that you can't use a frequency array if the values in the original array can be up to 10^9 for example.  
-In most cases, you can use frequency arrays safely for values up to 10^7. However, in some websites like Codeforces, you will be given the amount of memory available for your program, which you can use to calculate (roughly) the maximum size for a frequency array that you could create.
+In most cases, you can use frequency arrays safely for values up to 10^7. However, in some websites like Codeforces, you will be given the amount of memory available for your program, which you can use to calculate (roughly) the maximum size for a frequency array that you could use.
 
 * You can use a frequency array to sort an array in O(M) time, where M is the value of the largest integer in the array. Which could be much more efficient than merge sort (which runs in O(NlogN)) in cases where the array size is large but the values inside the array are bounded with a small number.
 I'll leave it for you to think about how we could implement this function that can sort an array in O(M) using a frequency array.
@@ -123,7 +123,7 @@ The situation we faced in the video is that we wanted to added some constant val
 A harder problem would be to add x to a[l], x+k to a[l+1], x+2k to a[l+2], ... where k and x are given constants.  
 Fortunately, there is an efficient solution for this task, which I will not explain here. However, here is my implementation for it if you want to have a look.
 
-```c
+```cpp
 typedef long long ll;
 
 #define MAX 1000000+9   //Maximum array size
@@ -159,7 +159,7 @@ void acc(int l, int r)
 
 ---
 
-# 8- Modular arithmetic
+## 8- Modular arithmetic
 #### Problems:
 1. http://codeforces.com/problemset/problem/834/A
 2. https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
@@ -171,3 +171,150 @@ void acc(int l, int r)
    Because of the modulo, the resulting array elements never exceed 3 × 10^7.  
    Therefore, sorting the array using a frequency array in O(M) will be more efficient than sorting it using merge sort in O(NlogN). (See the frequency array's section in the notes).
 </details>
+
+---
+
+## 9- Stack
+#### Problems:
+###### Basic problems
+1. https://app.codility.com/programmers/lessons/7-stacks_and_queues/nesting/ (This problem could be solved without using a stack).  
+2.https://app.codility.com/programmers/lessons/7-stacks_and_queues/brackets/
+
+###### A little bit harder
+1. https://app.codility.com/programmers/lessons/7-stacks_and_queues/fish/
+2. https://app.codility.com/programmers/lessons/7-stacks_and_queues/stone_wall/
+
+---
+
+## 10- Queue
+#### Problems:
+1. http://www.spoj.com/problems/QUEUEEZ/
+2. http://www.spoj.com/problems/ADAQUEUE/
+3. https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1876
+
+---
+
+## 11- Sorting
+I misspelled the word "precede" in the video, sorry for that.
+
+#### Problems:
+###### Basic problems
+1. https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1846 (Hint: Represent the numbers using strings).
+
+###### A little bit harder
+1. https://a2oj.com/p?ID=480    (A good problem to improve your implementation skills).
+2. https://app.codility.com/programmers/lessons/6-sorting/number_of_disc_intersections/ (Challenging)
+
+---
+
+## 12- Set
+#### Extra notes:
+* Erasing elements of a multiset:  
+If you say `s.erase(x)`, then all the elements in the multiset whose value = x will be erased.  
+If you want to erase only one of those elements, you should say:
+```cpp
+multiset<int>::iterator it = s.find(x);
+if(it != s.end())   s.erase(it);
+```
+Note that the video has been deleted and re-uploaded because of a bug related to this issue.
+
+* You can erase elements from a set while traversing it. However, you shouldn't erase
+the element that the iterator is pointing to directly, because this invalidates the iterator (statements like `it++` are no more guaranteed to run cleanly).  
+
+For example, let's say that we have a set of integers, and we want to erase all the elements whose values are greater than x and less than y.  
+You may be tempted to write the code like this:  
+```cpp
+for(set<int>::iterator it; it != s.end(); it++)
+{
+    if(*it > x && *it < y)  s.erase(it);
+}
+```
+Even though this may run cleanly, it is not guaranteed.  
+
+A safer approach would be to write:
+```cpp
+for(set<int>::iterator it = s.begin(); it != s.end();)
+{
+    if(*it > x && *it < y)
+    {
+        set<int>::iterator it2 = it;
+        it++;
+        s.erase(it2);
+    }
+
+    else it++;
+}
+```
+Or, you could take advantage of [this](http://thispointer.com/erase-elements-from-a-set-while-iterating-in-c-generic-erase_if/) new feature (C++11).
+
+* To make your life easier, take advantage of the "auto" keyword (C++11).  
+Instead of saying `set<int>::iterator it = s.begin()`, you could say `auto it = s.begin()`. And the compiler will deduce that the data type of `it` should be `set<int>::iterator`.
+
+* If you want to sort the elements in your set according to a certain criterion and you intend to write yourself the function that compares two elements and decides who should precede whom, then you should be cautious.  
+Let's assume that your set already has an element called x, and you want to insert another element, y. If both precede(x, y) and precede(y, x) return false, then the set would decide not to insert y (remember that sets do not allow duplications) even though the elements x and y may be different.  
+Don't spend much time thinking about this now, just keep this note in mind and review it whenever you need to write your "precede" function.
+
+#### Problems:
+1. https://app.codility.com/programmers/lessons/4-counting_elements/frog_river_one/ (Solve it using set).
+2. https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2949
+3. http://codeforces.com/problemset/problem/637/B
+
+---
+
+## 13- Map
+#### Extra notes:
+* Maps can replace frequency arrays (at the cost of the log(N) overhead), especially in cases where the original array's values are large (See the frequency array's section in the notes).
+
+#### Problems:
+1. https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1223
+2. http://codeforces.com/contest/2/problem/A
+
+---
+
+## 14- Graph representation
+#### Problems:
+1. http://codeforces.com/problemset/gymProblem/101149/I
+
+---
+
+## 15, 16- Graph traverse (DFS & BFS)
+#### Problems:
+###### Basic problems
+1. https://www.hackerrank.com/challenges/bfsshortreach/problem
+2. http://codeforces.com/gym/101147/problem/E
+3. http://codeforces.com/problemset/problem/580/C
+
+###### A little bit harder
+1. https://www.hackerrank.com/contests/world-codesprint-8/challenges/torque-and-development
+2. https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=410
+3. http://codeforces.com/problemset/gymProblem/101149/L
+4. http://codeforces.com/problemset/problem/558/C
+
+---
+
+## 17- Dijkstra
+#### Problems:
+1. https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1927
+2. http://www.spoj.com/problems/SHOP/
+
+---
+
+## 18- DSU
+#### Problems:
+###### Basic problems
+1. http://codeforces.com/problemset/problem/791/B
+2. http://codeforces.com/problemset/problem/445/B
+3. https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1099 (Online queries)
+
+###### A little bit harder
+1. http://codeforces.com/problemset/problem/884/C
+2. http://codeforces.com/contest/731/problem/C
+
+---
+
+## 19- Dynamic programming I
+#### Problems:
+1. http://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
+2. http://codeforces.com/problemset/problem/35/D
+3. http://codeforces.com/gym/101147/problem/H
+4. http://codeforces.com/problemset/problem/699/C
