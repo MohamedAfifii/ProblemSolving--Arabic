@@ -73,7 +73,7 @@ dynamic programming and the principle of inclusion-exclusion.
 
 ## 4- Complexity of algorithms II
 #### Problems:
-There are now problems for this video (at least for now), so I will add more problems for the next video to compensate.
+There are no problems for this video (at least for now), so I will add more problems for the next video to compensate.
 
 #### Want to learn more about the analysis of algorithms?
 Watch the last three videos in this [playlist](https://www.youtube.com/playlist?list=PLoK2Lr1miEm-5zCzKE8siQezj9rvQlnca).  
@@ -110,7 +110,7 @@ In the last two videos, we haven't really learned a new algorithm or technique, 
 
 ## 6- Overflow and type casting
 #### Problems:
-There are now problems for this video (at least for now).
+There are no problems for this video (at least for now).
 
 ---
 
