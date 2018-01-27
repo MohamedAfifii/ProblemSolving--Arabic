@@ -2,7 +2,7 @@
 
 Playlist link: https://www.youtube.com/playlist?list=PLYknlDiw2kSwdDhTSDoX7ZoVEle8nbZdk
 
-Special thanks to Bassel bakr, Hossam Doma, Muhammad Al-Maghraby, Ahmad Ghazaly and Muhammad Al-Halaby for their help in choosing suitable problems for each video and providing legible solutions for the problems.
+Special thanks to Bassel Bakr, Hossam Doma, Muhammad Al-Maghraby, Ahmad Ghazaly and Muhammad Al-Halaby for their help in choosing suitable problems for each video and providing legible solutions for the problems.
 
 ## 1- Complexity of algorithms
 #### Extra notes:
