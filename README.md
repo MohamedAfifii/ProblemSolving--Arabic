@@ -1,6 +1,8 @@
 # Problem solving (Arabic)
 
-#### Playlist link: https://www.youtube.com/playlist?list=PLYknlDiw2kSwdDhTSDoX7ZoVEle8nbZdk
+Playlist link: https://www.youtube.com/playlist?list=PLYknlDiw2kSwdDhTSDoX7ZoVEle8nbZdk
+
+Special thanks to Bassel bakr, Hossam Doma, Muhammad Al-Maghraby, Ahmad Ghazaly and Muhammad Al-Halaby for their help in choosing suitable problems for each video and providing legible solutions for the problems.
 
 ## 1- Complexity of algorithms
 #### Extra notes:
@@ -224,7 +226,7 @@ the element that the iterator is pointing to directly, because this invalidates 
 For example, let's say that we have a set of integers, and we want to erase all the elements whose values are greater than x and less than y.  
 You may be tempted to write the code like this:  
 ```cpp
-for(set<int>::iterator it; it != s.end(); it++)
+for(set<int>::iterator it = s.begin(); it != s.end(); it++)
 {
     if(*it > x && *it < y)  s.erase(it);
 }
@@ -272,6 +274,8 @@ Don't spend much time thinking about this now, just keep this note in mind and r
 ---
 
 ## 14- Graph representation
+This video assumes that you have watched [this](https://www.youtube.com/watch?v=HTy6ulvbQUk) video first.
+
 #### Problems:
 1. http://codeforces.com/problemset/gymProblem/101149/I
 
@@ -313,6 +317,8 @@ Don't spend much time thinking about this now, just keep this note in mind and r
 ---
 
 ## 19- Dynamic programming I
+Optionally, watch [this](https://www.youtube.com/watch?v=34Drti_iMsg) video first.
+
 #### Problems:
 1. http://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
 2. http://codeforces.com/problemset/problem/35/D
