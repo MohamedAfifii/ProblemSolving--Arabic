@@ -103,10 +103,9 @@ In the last two videos, we haven't really learned a new algorithm or technique, 
 
 ###### A little bit harder
 1. http://codeforces.com/problemset/problem/66/B
-2. http://codeforces.com/problemset/problem/761/B
-3. http://codeforces.com/problemset/problem/828/B
-4. http://codeforces.com/problemset/problem/825/B
-5. http://codeforces.com/problemset/problem/102/B
+2. http://codeforces.com/problemset/problem/828/B
+3. http://codeforces.com/problemset/problem/825/B
+4. http://codeforces.com/problemset/problem/102/B
 
 ---
 
@@ -167,7 +166,8 @@ void acc(int l, int r)
 2. https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
 
 #### A little bit harder:
-1. http://codeforces.com/problemset/gymProblem/101466/J
+1. http://codeforces.com/problemset/problem/761/B
+2. http://codeforces.com/problemset/gymProblem/101466/J
 <details>
   <summary>Need a hint?</summary>
    Because of the modulo, the resulting array elements never exceed 3 × 10^7.  
