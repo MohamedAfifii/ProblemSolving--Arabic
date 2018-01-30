@@ -59,7 +59,7 @@ After this line, you can use the array `A` as a prefix_sum array. This is more m
 
 * Remember that the sum of elements in A[L:R] = prefix_sum[R] - prefix_sum[L-1] (for L != 0).  
 While the sum of elements in A[0:R] = prefix_sum[R]  
-<br/>
+
 Therefore, working with 1-indexed arrays (if you have N integers for example, the first of them will be A[1] and the last will be A[N], instead of A[0] and A[N-1]) can make your life easier, as you don't have to check whether `L` is equal to zero or not before you answer the query (which results in a shorter code).  
 So if you are going to input the array using `cin` for example (you can still understand the code even if you don't know `cin`), then you should create the two arrays `A` and `prefix_sum` with sizes >= N+1 and write:  
 ```c
@@ -244,7 +244,7 @@ Note that the video has been deleted and re-uploaded because of a bug related to
 
 * You can erase elements from a set while traversing it. However, you shouldn't erase
 the element that the iterator is pointing to directly, because this invalidates the iterator (statements like `it++` are no more guaranteed to run cleanly).  
-<br/>
+
 For example, let's say that we have a set of integers, and we want to erase all the elements whose values are greater than x and less than y.  
 You may be tempted to write the code like this:  
 ```cpp
@@ -254,7 +254,7 @@ for(set<int>::iterator it = s.begin(); it != s.end(); it++)
 }
 ```
 Even though this may run cleanly, it is not guaranteed.  
-<br/>
+
 A safer approach would be to write:
 ```cpp
 for(set<int>::iterator it = s.begin(); it != s.end();)
