@@ -29,9 +29,9 @@ If the number you get from this substitution is <= 10^8, then "most probably" yo
 ## 2- Frequency array
 #### Extra notes:
 * The usage of frequency arrays has its limitations. Remember that you need an array whose size is equal to the value of the largest integer in the original array. Which means that you can't use a frequency array if the values in the original array can be up to 10^9 for example.  
-In most cases, you can use frequency arrays safely for values up to 10^7. However, in some websites like Codeforces, you will be given the amount of memory available for your program, which you can use to calculate (roughly) the maximum size for a frequency array that you could use.
+In most cases, you can use frequency arrays safely for values up to 10^7. However, in some websites like Codeforces, you will be given the amount of memory available for your program, which you can use to calculate (roughly) the maximum size of a frequency array that you can use.
 
-* You can use a frequency array to sort an array in O(M) time, where M is the value of the largest integer in the array. Which could be much more efficient than merge sort (which runs in O(NlogN)) in cases where the array size is large but the values inside the array are bounded with a small number.
+* You can use a frequency array to sort an array in O(M) time, where M is the value of the largest integer in the array. Which could be much more efficient than merge sort (which runs in O(NlogN) in cases where the array size is large but the values inside the array are bounded with a small number.
 I'll leave it for you to think about how we could implement this function that can sort an array in O(M) using a frequency array.
 
 #### Problems:
@@ -50,6 +50,25 @@ I'll leave it for you to think about how we could implement this function that c
 
 ## 3- Prefix sum
 #### Extra notes:
+* In many cases, you don't need the original array after you build the prefix_sum array. In these cases, it's better to "transform" your original array into a prefix_sum array, instead of creating a separate array for the prefix sum.  
+Suppose that you have a zero-indexed array `A` that you want to compute a prefix sum for, then you can write:
+```c
+for(int i = 1; i < n; i++)  A[i] += A[i-1];
+```
+After this line, you can use the array `A` as a prefix_sum array. This is more memory-efficient and even faster to write.
+
+* Remember that the sum of elements in A[L:R] = prefix_sum[R] - prefix_sum[L-1] (for L != 0).  
+While the sum of elements in A[0:R] = prefix_sum[R]  
+<br/>
+Therefore, working with 1-indexed arrays (if you have N integers for example, the first of them will be A[1] and the last will be A[N], instead of A[0] and A[N-1]) can make your life easier, as you don't have to check whether `L` is equal to zero or not before you answer the query (which results in a shorter code).  
+So if you are going to input the array using `cin` for example (you can still understand the code even if you don't know `cin`), then you should create the two arrays `A` and `prefix_sum` with sizes >= N+1 and write:  
+```c
+for(int i = 1; i <= N; i++) cin >> A[i];
+for(int i = 1; i <= N; i++) prefix_sum[i] = prefix_sum[i-1]+A[i];
+```
+This assumes that prefix_sum[0] = 0, which is the case by default for global variables.  
+Now, the sum of elements in A[L:R] = prefix_sum[R] - prefix_sum[L-1] (for any `1 <= L <= R <= N`).
+
 * You can use prefix sum for multi-dimensional arrays. Here is a [video](https://www.youtube.com/watch?v=PwDqpOMwg6U) that
 demonstrates how this could be done for 2D arrays.  
 You can apply the same concept to 3D arrays, but it will be a little bit tedious.
@@ -84,6 +103,9 @@ This playlist is also an excellent resource if you want to learn about the imple
 ---
 
 ## 5- C++
+#### Extra notes:
+* What I said that using `cin` makes your code shorter, I really meant that it is (usually) faster to write than `scanf`. Sorry if that wasn't clear.
+
 #### Additional references:
 You can learn more about C++ from this [website](http://www.cplusplus.com/doc/tutorial/), which also has a great documentation for the C++ STL (Standard Template Library). Just open up Google and type: cplusplus + the thing that you are searching for.  
 e.g. cplusplus vector or cplusplus sort function
@@ -222,7 +244,7 @@ Note that the video has been deleted and re-uploaded because of a bug related to
 
 * You can erase elements from a set while traversing it. However, you shouldn't erase
 the element that the iterator is pointing to directly, because this invalidates the iterator (statements like `it++` are no more guaranteed to run cleanly).  
-
+<br/>
 For example, let's say that we have a set of integers, and we want to erase all the elements whose values are greater than x and less than y.  
 You may be tempted to write the code like this:  
 ```cpp
@@ -232,7 +254,7 @@ for(set<int>::iterator it = s.begin(); it != s.end(); it++)
 }
 ```
 Even though this may run cleanly, it is not guaranteed.  
-
+<br/>
 A safer approach would be to write:
 ```cpp
 for(set<int>::iterator it = s.begin(); it != s.end();)
