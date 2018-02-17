@@ -3,11 +3,13 @@
 
 How to find the shortest path using BFS. (One to many)
 
-vector<int> BFS(int src, const vector<vi> &edges) ///Call: vi distancesances = BFS(node, edges)
+typedef vector<int> vi;
+
+vi BFS(int src, const vector<vi> &edges) ///Call: vi distances = BFS(node, edges)
 {
     int N = edges.size();
-    vector<int> distancesances(N, -1);
-    distancesances[src] = 0;
+    vector<int> distances(N, -1);
+    distances[src] = 0;
 
     queue<int> q;
     q.push(src);
@@ -15,29 +17,29 @@ vector<int> BFS(int src, const vector<vi> &edges) ///Call: vi distancesances = B
     while(!q.empty())
     {
         int node = q.front();   q.pop();
-        int cost = distancesances[node];
+        int cost = distances[node];
 
-        for(int child: edges[node])     if(distancesances[child]== -1)
+        for(int child: edges[node])     if(distances[child]== -1)
         {
             q.push(child);
-            distancesances[child] = cost+1;
+            distances[child] = cost+1;
         }
     }
 
-    return distancesances;
+    return distances;
 }
-//Nodes of other components will have a distancesance of -1.
+//Nodes of other components (unreachable from the src node) will have distances of -1.
 
 
 ///How to construct the paths
 
 vector<vi> edges(MAXNODES);
-vi distancesances(MAXNODES, -1);
+vi distances(MAXNODES, -1);
 vi p(MAXNODES);
 
 void BFS(int src)
 {
-    distancesances[src] = 0;
+    distances[src] = 0;
     p[src] = src;
 
     queue<int> q;
@@ -46,20 +48,20 @@ void BFS(int src)
     while(!q.empty())
     {
         int node = q.front();   q.pop();
-        int cost = distancesances[node];
+        int cost = distances[node];
 
-        for(int child: edges[node])     if(distancesances[child]== -1)
+        for(int child: edges[node])     if(distances[child]== -1)
         {
             p[child] = node;
             q.push(child);
-            distancesances[child] = cost+1;
+            distances[child] = cost+1;
         }
     }
 }
 
 ///For the graph in the picture, with src = 1.
 
-distancesances = 0 , 1 , 2 , 2 , 1
+distances = 0 , 1 , 2 , 2 , 1
 p         = 1 , 1 , 2 , 2 , 1
 
 
@@ -76,21 +78,33 @@ reverse(v.begin(), v.end());
 
 
 ///ACM ECPC 2016 (Jumping) (Many to one).
+
+#define endl '\n'	//Faster printing
+
 int main()
 {
-    int n;  cin >> n;
-    loop(n)
+    cin.tie(0);
+    cin.sync_with_stdio(0);	//Faster input (To avoid exceeding the time limit)
+    
+    int t;  cin >> t;
+    while(t--)
     {
-        int j;  cin >> j;
-        int u = i+j, v = i-j;
+        int n;  cin >> n;
+        vector<vi> edges(n);
 
-        if(u < n)   edges[u].PB(i);
-        if(v >= 0)  edges[v].PB(i);
+        for(int i = 0; i < n; i++)
+        {
+            int j;  cin >> j;
+            int u = i+j, v = i-j;
+
+            if(u < n)   edges[u].push_back(i);
+            if(v >= 0)  edges[v].push_back(i);
+        }
+
+        vi distances = BFS(n-1, edges);
+        for(int i = 0; i < n; i++)  cout << distances[i] << endl;
     }
 
-    vi distancesances = BFS(n-1, edges);
-
-    for(int i = 0; i < n; i++)  cout << distancesances[i] << " ";
     return 0;
 }
 
@@ -141,5 +155,4 @@ int main()
 }
 //How to construct the path for this problem?
 
-///Complexity
-
+///Complexity?
