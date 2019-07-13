@@ -346,3 +346,12 @@ Optionally, watch [this](https://www.youtube.com/watch?v=34Drti_iMsg) video firs
 2. http://codeforces.com/problemset/problem/35/D
 3. http://codeforces.com/gym/101147/problem/H
 4. http://codeforces.com/problemset/problem/699/C
+
+## 20- Binary Search for Optimization Problems
+#### Problems:
+1. https://www.spoj.com/problems/BSEARCH1/
+2. https://www.spoj.com/problems/AGGRCOW/
+3. https://codeforces.com/problemset/problem/812/C
+4. https://app.codility.com/programmers/lessons/14-binary_search_algorithm/min_max_division/
+5. https://app.codility.com/programmers/lessons/14-binary_search_algorithm/nailing_planks/
+6. http://codeforces.com/problemset/gymProblem/100814/G
