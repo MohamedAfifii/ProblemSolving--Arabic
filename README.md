@@ -342,7 +342,7 @@ This video assumes that you have watched [this](https://www.youtube.com/watch?v=
 Optionally, watch [this](https://www.youtube.com/watch?v=34Drti_iMsg) video first.
 
 #### Problems:
-1. http://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
+1. https://www.spoj.com/problems/KNAPSACK/
 2. http://codeforces.com/problemset/problem/35/D
 3. http://codeforces.com/gym/101147/problem/H
 4. http://codeforces.com/problemset/problem/699/C
